@@ -80,8 +80,10 @@ document.querySelector(".delete-button").addEventListener("click", function () {
   document.querySelector("output").textContent = "";
 });
 
-document.querySelector(".copy-button").addEventListener("click", function () {
-  let copyText = document.querySelector("");
-  copyText.select();
-  document.execCommand("copy");
+let clipboard = new ClipboardJS(".copy-button", {
+  text: function (trigger) {
+    return document
+      .getElementById("output-copy")
+      .innerText.replace(/\n+/g, "\n");
+  },
 });
