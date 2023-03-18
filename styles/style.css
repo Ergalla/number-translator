@@ -15,6 +15,10 @@ main {
   background-color: #121213;
 }
 
+img {
+  pointer-events: none;
+}
+
 .translator-container {
   background-color: #212023;
   width: 86.316%;
