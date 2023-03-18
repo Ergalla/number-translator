@@ -48,6 +48,11 @@ const intToRoman = function (n) {
   return result;
 };
 
+function isEmpty(str) {
+  if (str.trim() == "") return true;
+  return false;
+}
+
 document.querySelector(".swap-button").addEventListener("click", function () {
   if (activeLang == "Int") {
     activeLang = "Roman";
@@ -73,11 +78,19 @@ document.querySelector("textarea").addEventListener("input", function (e) {
     activeLang == "Int"
       ? intToRoman(e.target.value)
       : romanToInt(e.target.value);
+  document.querySelector(".copy-button").classList.remove("b-delete");
+  document.querySelector(".copy-button").classList.add("b-show");
+  if (isEmpty(e.target.value)) {
+    document.querySelector(".copy-button").classList.remove("b-show");
+    document.querySelector(".copy-button").classList.add("b-delete");
+  }
 });
 
 document.querySelector(".delete-button").addEventListener("click", function () {
   document.querySelector("textarea").value = "";
   document.querySelector("output").textContent = "";
+  document.querySelector(".copy-button").classList.remove("b-show");
+  document.querySelector(".copy-button").classList.add("b-delete");
 });
 
 let clipboard = new ClipboardJS(".copy-button", {

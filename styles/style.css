@@ -140,9 +140,13 @@ output {
   background-color: #424145;
 }
 
+.b-delete {
+  animation: deleteBlock 0.3s linear forwards;
+}
+
 .b-show {
   display: block;
-  animation: showBlock 1s linear forwards;
+  animation: showBlock 0.3s linear forwards;
 }
 
 @keyframes showBlock {
@@ -151,5 +155,14 @@ output {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes deleteBlock {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
