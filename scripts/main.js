@@ -49,8 +49,7 @@ const intToRoman = function (n) {
 };
 
 function isEmpty(str) {
-  if (str.trim() == "") return true;
-  return false;
+  return !str.trim();
 }
 
 document.querySelector(".swap-button").addEventListener("click", function () {
